@@ -26,38 +26,24 @@ class ArrayStatistics
     @array.stdev.round(1)
   end
 
+  def sum 
+    @array.reduce(:+)
+  end
+
+  def product
+    @array.inject(:*)
+  end
+
+  def high_low
+    @array.last - @array.first
+  end
+
+  def digit_frequency
+    digit_hash = {}
+    @array.each do |number|
+      digit_hash[number.to_s.length]||= 0
+      digit_hash[number.to_s.length] += 1
+    end
+    digit_hash
+  end
 end
-
-
-# As an array analyst
-# I want to know the standard deviation of all numbers in the array
-
-# As an array analyst
-# I want to know the nth smallest number in the array
-
-# Sample Output
-# a = ArrayStatistic.new([1, 1000, 200, 300, 3000, 4000, 5500])
-# a.nth_smallest(3)
-
-# => 300
-# As an array analyst
-# I want to know the sum of all of the numbers in the array
-
-# As an array analyst
-# I want to know the product of all the numbers in the array
-
-# As an array analyst
-# I want to know the difference between the highest and lowest number in the array
-
-# As an array analyst
-# I want a hash that breaks down how many times n-digit numbers are found in the array
-
-# Example for the above user story:
-
-# ArrayStatistic.new([1, 1000, 200, 300, 3000, 4000, 5500]).digit_frequency
-
-# => {
-#   1: 1,
-#   2: 2,
-#   3: 4
-# }

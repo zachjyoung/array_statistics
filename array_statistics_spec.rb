@@ -26,4 +26,28 @@ describe ArrayStatistics do
   it 'finds the standard deviation of the array' do 
     expect(array.stdev.round(1)).to eql(2174.7)
   end
+
+  it 'finds the sum of all the numbers in the array' do 
+    expect(array.sum).to eql(14001)
+  end
+
+  it 'finds the product of all the numbers in the array' do 
+    expect(array.product).to eql(3960000000000000000)
+  end
+
+  it 'finds the difference between the highest and lowest number in the array' do 
+    expect(array.high_low).to eql(5499)
+  end
+
+  it 'finds the frequency of n-digit numbers' do 
+    expect(array.digit_frequency).to eql({
+   1 => 1,
+   3 => 2,
+   4 => 4
+ })
+end
+
+
+
+
 end
