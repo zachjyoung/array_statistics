@@ -1,11 +1,33 @@
-# As an array analyst
-# I want to know the largest number in an array
+require 'ruby-standard-deviation'
 
-# As an array analyst
-# I want to know the smallest number in an array
+class ArrayStatistics
+  attr_reader :array
+  def initialize(array)
+    @array = array.sort
+  end
 
-# As an array analyst
-# I want to know the average of all numbers in the array
+  def nth_smallest(num)
+    @array[num - 1]
+  end
+
+  def largest_number
+    @array.last
+  end
+
+  def smallest_number
+    @array.first
+  end
+
+  def average
+    @array.reduce(:+) / @array.length
+  end
+
+  def stdev
+    @array.stdev.round(1)
+  end
+
+end
+
 
 # As an array analyst
 # I want to know the standard deviation of all numbers in the array
